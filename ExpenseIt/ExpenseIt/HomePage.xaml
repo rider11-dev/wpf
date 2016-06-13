@@ -1,0 +1,76 @@
+﻿<Page x:Class="ExpenseIt.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="ExpenseIt-Home">
+
+    <Grid Margin="10 0 10 10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="child.jpg"/>
+        </Grid.Background>
+        <!--Grid.Resources需要定义在内容之前-->
+        <Grid.Resources>
+            <!--数据绑定模板-->
+            <DataTemplate x:Key="nameItemTemplate">
+                <Label Content="{Binding XPath=@Name}"/>
+            </DataTemplate>
+
+            <!--费用报告数据-->
+            <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses">
+                <x:XData>
+                    <Expenses xmlns="">
+                        <Person Name="张三" Department="研发部">
+                            <Expense ExpenseType="餐费" ExpenseAmount="50"/>
+                            <Expense ExpenseType="交通" ExpenseAmount="100"/>
+                        </Person>
+                        <Person Name="李四" Department="市场部">
+                            <Expense ExpenseType="标书打印" ExpenseAmount="50"/>
+                            <Expense ExpenseType="礼品" ExpenseAmount="150"/>
+                        </Person>
+                        <Person Name="王五" Department="工程部">
+                            <Expense ExpenseType="施工费" ExpenseAmount="500"/>
+                            <Expense ExpenseType="软件费用" ExpenseAmount="50"/>
+                            <Expense ExpenseType="硬件费用" ExpenseAmount="350"/>
+                        </Person>
+                        <Person Name="赵六" Department="财务部">
+                            <Expense ExpenseType="晚餐" ExpenseAmount="100"/>
+                        </Person>
+                    </Expenses>
+                </x:XData>
+            </XmlDataProvider>
+
+        </Grid.Resources>
+        
+        <Label Grid.Column="1" Style="{StaticResource headerTextStyle}">
+            查看费用报告
+        </Label>
+
+        <!-- People list -->
+        <Border Grid.Column="1" Grid.Row="1" Style="{StaticResource listHeaderStyle}">
+            <Label Style="{StaticResource listHeaderTextStyle}">姓名</Label>
+        </Border>
+        <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
+         ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}"
+         ItemTemplate="{StaticResource nameItemTemplate}">
+        </ListBox>
+
+        <!-- View report button -->
+        <Button Grid.Column="1" Grid.Row="3" Click="btnViewReport_Click" Style="{StaticResource buttonStyle}">
+            查看
+        </Button>
+    </Grid>
+</Page>
