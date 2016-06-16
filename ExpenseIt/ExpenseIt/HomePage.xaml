@@ -72,5 +72,6 @@
         <Button Grid.Column="1" Grid.Row="3" Click="btnViewReport_Click" Style="{StaticResource buttonStyle}">
             查看
         </Button>
+        <DatePicker HorizontalAlignment="Left" Margin="86,31,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
