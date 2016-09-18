@@ -1,0 +1,28 @@
+﻿<Page x:Class="WpfApplication2.Page_RoutedEvent_1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:custom="clr-namespace:WpfApplication2"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+	Title="Page_RoutedEvent_1"
+      custom:MySimpleButton.CustomClick="InsertList" Loaded="Page_Loaded">
+
+    <Grid Margin="3" custom:MySimpleButton.CustomClick="InsertList" Name="grid1">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <custom:MySimpleButton x:Name="btnMySimple" CustomClick="InsertList">
+            MySimpleButton
+        </custom:MySimpleButton>
+        <ListBox Margin="5" Name="lstMsg" Grid.Row="1"></ListBox>
+        <CheckBox Margin="5" Grid.Row="2" Name="chkHandle">handle first event</CheckBox>
+        <Button Grid.Row="3" HorizontalAlignment="Right" Margin="5" Padding="3" Name="btnClearList" Click="btnClearList_Click">
+            clear list
+        </Button>
+    </Grid>
+</Page>

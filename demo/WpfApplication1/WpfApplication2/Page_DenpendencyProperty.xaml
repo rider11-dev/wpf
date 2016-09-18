@@ -3,12 +3,14 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApplication2"
       mc:Ignorable="d" 
       d:DesignHeight="269" d:DesignWidth="572"
 	Title="Page_DenpendencyProperty">
 
     <Grid Name="Grid1">
         <Grid.RowDefinitions>
+            <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -55,15 +57,26 @@
 
         <!--数据绑定支持-->
         <Label Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">数据绑定支持</Label>
-        <Button Grid.Row="1" Grid.Column="3" Name="btnBinding" Padding="0" Margin="5">
+        <Button Grid.Row="1" Grid.Column="3" Name="btnBinding" Padding="0" Margin="5"
+                Background="{Binding Source={StaticResource myDataSource},Path=ColorName}">
             我被绑定为红色
         </Button>
 
         <!--属性值继承-->
         <Label Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">属性值继承</Label>
-        <Button Grid.Row="2" Grid.Column="1" Name="btnFontSizeWin">设置窗口字体：16</Button>
-        <Button Grid.Row="2" Grid.Column="2" Name="btnFontSize">设置按钮字体：6</Button>
-        <Button Grid.Row="2" Grid.Column="3" Name="btnResetFontSize">重置字体：12</Button>
+        <Button Grid.Row="2" Grid.Column="1" Name="btnFontSizeWin" Click="btnFontSizeWin_Click">设置窗口字体：16</Button>
+        <Button Grid.Row="2" Grid.Column="2" Name="btnFontSize" Click="btnFontSize_Click">设置按钮字体：6</Button>
+        <Button Grid.Row="2" Grid.Column="3" Name="btnResetFontSize" Click="btnResetFontSize_Click">重置字体：12</Button>
 
+        <!--自定义依赖属性-->
+        <Label Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">自定义依赖属性</Label>
+        <local:SpaceButton x:Name="btnSpace1" Grid.Row="3" Grid.Column="1"
+                           Margin="5" Text="设置按钮字符空格：2"
+                           Click="btnSpace1_Click">
+        </local:SpaceButton>
+        <local:SpaceButton x:Name="btnSpace2" Grid.Row="3" Grid.Column="2"
+                           Margin="5" Text="设置窗口字符空格：2"
+                           Click="btnSpace2_Click">
+        </local:SpaceButton>
     </Grid>
 </Page>
