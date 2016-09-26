@@ -1,0 +1,43 @@
+﻿<Page x:Class="WpfApplication2.Page_DenpendencyProperty_Priority"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="600"
+	Title="依赖属性优先级1">
+    <Page.Resources>
+        <!--1、设置本地值>模板父类>样式-->
+        <!--优先级③-->
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+        <ControlTemplate TargetType="{x:Type Button}" x:Key="templateButton">
+            <ControlTemplate.Resources>
+                <!--优先级②-->
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Yellow"/>
+                </Style>
+            </ControlTemplate.Resources>
+            <Grid Background="AliceBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <!--优先级①-->
+                <Button Background="Blue" Grid.Column="0" Width="180" Height="50">
+                </Button>
+                <Ellipse Grid.Column="1" Fill="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Background}"
+                         Width="20" Height="20"/>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid Name="Re">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Margin="5" Grid.Row="0" Template="{StaticResource templateButton}">
+
+        </Button>
+    </Grid>
+</Page>
