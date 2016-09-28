@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MySimpleButton.cs" />
+    <Compile Include="Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Host\Page_Content.xaml.cs">
       <DependentUpon>Page_Content.xaml</DependentUpon>
     </Compile>
@@ -98,6 +101,10 @@
     <Compile Include="Window\Window_Property.xaml.cs">
       <DependentUpon>Window_Property.xaml</DependentUpon>
     </Compile>
+    <Page Include="Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Host\Page_Content.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

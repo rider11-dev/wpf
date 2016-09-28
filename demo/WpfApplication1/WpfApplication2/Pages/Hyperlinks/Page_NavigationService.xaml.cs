@@ -30,7 +30,7 @@ namespace WpfApplication2.Pages.Hyperlinks
             Hyperlink link = sender as Hyperlink;
             if (link == link1)
             {
-                NavigationService.Navigate(new Uri("pack://application:,,,WpfApplication2.Pages.Hyperlinks.Page2.xaml"));
+                NavigationService.Navigate(new Uri("pack://application:,,,/Pages/Hyperlinks/Page2.xaml"));
             }
             else if (link == link2)
             {
@@ -38,7 +38,7 @@ namespace WpfApplication2.Pages.Hyperlinks
             }
             else if (link == link3)
             {
-                NavigationService.Navigate(new Uri("pack://application:,,,/Page1.xaml"));
+                NavigationService.Navigate(new Uri("pack://application:,,,/Pages/Hyperlinks/Page1.xaml"));
             }
             else if (link == link4)
             {
