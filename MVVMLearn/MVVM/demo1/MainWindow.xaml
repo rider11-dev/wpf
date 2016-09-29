@@ -1,0 +1,14 @@
+﻿<Window x:Class="demo1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vmLocal="clr-namespace:demo1.ViewModel"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vmLocal:SongViewModel/>
+    </Window.DataContext>
+    <StackPanel>
+        <Label Name="lbl1" Foreground="Red" Content="歌手："/>
+        <Label Name="lbl2" Content="{Binding ArtistName}"/>
+        <Button Name="btnUpdateName" Width="80" Height="30" Content="修改名称" Click="btnUpdateName_Click"/>
+    </StackPanel>
+</Window>

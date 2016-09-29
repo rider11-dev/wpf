@@ -9,6 +9,7 @@ using System.Windows.Navigation;
 using System.Windows.Threading;
 using WpfApplication2.Pages;
 using WpfApplication2.Pages.Host;
+using WpfApplication2.Pages.TransferState;
 
 namespace WpfApplication2
 {
@@ -17,11 +18,36 @@ namespace WpfApplication2
     /// </summary>
     public partial class App : Application
     {
+        public List<User> users;
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
 
             //WindowTest();
-            PageTest();
+            //PageTest();
+            TransferStateTest();
+        }
+
+        /// <summary>
+        /// 页面状态及参数传递
+        /// </summary>
+        void TransferStateTest()
+        {
+            PageLogin.Register();
+
+            users = new List<User>();
+
+            User usr = new User("zpf","zpf");
+            usr.FavColors.Add("绿色");
+            usr.FavColors.Add("黑色");
+
+            users.Add(usr);
+
+            NavigationWindow win = new NavigationWindow();
+            win.Width = 480;
+            win.Height = 400;
+            win.Content = new PageLogin();
+            win.Show();
         }
 
         private void PageTest()
@@ -34,6 +60,7 @@ namespace WpfApplication2
             //win.Content = new Page_UsingFrameAsHost();
             //win.Content = new WpfApplication2.Pages.Hyperlinks.Page1();
             win.Content = new WpfApplication2.Pages.Hyperlinks.Page_NavigationService();
+           
             
 
             win.Show();

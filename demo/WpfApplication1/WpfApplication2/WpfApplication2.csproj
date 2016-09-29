@@ -79,6 +79,16 @@
     <Compile Include="Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TransferState\PageError.xaml.cs">
+      <DependentUpon>PageError.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransferState\PageLogin.xaml.cs">
+      <DependentUpon>PageLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransferState\PageWelcome.xaml.cs">
+      <DependentUpon>PageWelcome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TransferState\User.cs" />
     <Compile Include="Property\Page_DenpendencyProperty_Priority.xaml.cs">
       <DependentUpon>Page_DenpendencyProperty_Priority.xaml</DependentUpon>
     </Compile>
@@ -126,6 +136,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TransferState\PageError.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TransferState\PageLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TransferState\PageWelcome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
