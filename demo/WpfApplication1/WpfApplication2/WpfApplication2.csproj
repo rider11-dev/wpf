@@ -56,6 +56,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\WindowControl.xaml.cs">
+      <DependentUpon>WindowControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layouts\CustomPanel.cs" />
+    <Compile Include="Layouts\LayoutWindow.xaml.cs">
+      <DependentUpon>LayoutWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MySimpleButton.cs" />
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -95,6 +102,9 @@
     <Compile Include="Property\Page_DenpendencyProperty_Priority_1.xaml.cs">
       <DependentUpon>Page_DenpendencyProperty_Priority_1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\WindowResource.xaml.cs">
+      <DependentUpon>WindowResource.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RouteEvent\Page_RoutedEvent.xaml.cs">
       <DependentUpon>Page_RoutedEvent.xaml</DependentUpon>
     </Compile>
@@ -102,6 +112,9 @@
       <DependentUpon>Page_RoutedEvent_1.xaml</DependentUpon>
     </Compile>
     <Compile Include="SpaceButton.cs" />
+    <Compile Include="Styles\WindowStyle.xaml.cs">
+      <DependentUpon>WindowStyle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window\Window_LifeTime.xaml.cs">
       <DependentUpon>Window_LifeTime.xaml</DependentUpon>
     </Compile>
@@ -111,6 +124,16 @@
     <Compile Include="Window\Window_Property.xaml.cs">
       <DependentUpon>Window_Property.xaml</DependentUpon>
     </Compile>
+    <Resource Include="Resources\sad.png" />
+    <Resource Include="Resources\smile.png" />
+    <Page Include="Controls\WindowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Layouts\LayoutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +171,27 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\TransferState\PageWelcome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Resource Include="Resources\at.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="Resources\ContentFile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Page Include="Resources\DictBrushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Resources\WindowResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\WindowStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -233,9 +277,25 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="baby.jpg" />
+    <None Include="baby.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="images\down.png" />
+    <Resource Include="images\left.png" />
+    <Resource Include="images\right.png" />
+    <Resource Include="images\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ResourcesLib\ResourcesLib.csproj">
+      <Project>{9e32cc71-8e77-4091-81df-7be6ee3a73dc}</Project>
+      <Name>ResourcesLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\welcome.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

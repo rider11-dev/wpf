@@ -7,9 +7,12 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 using System.Windows.Threading;
+using WpfApplication2.Controls;
+using WpfApplication2.Layouts;
 using WpfApplication2.Pages;
 using WpfApplication2.Pages.Host;
 using WpfApplication2.Pages.TransferState;
+using WpfApplication2.Resources;
 
 namespace WpfApplication2
 {
@@ -25,7 +28,40 @@ namespace WpfApplication2
 
             //WindowTest();
             //PageTest();
-            TransferStateTest();
+            //TransferStateTest();
+            //LayoutTest();
+            //ControlsTest();
+
+            //ResourcesTest();
+            StyleTest();
+        }
+
+        void StyleTest()
+        {
+            Window win = new WpfApplication2.Styles.WindowStyle();
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+        }
+
+        void ResourcesTest()
+        {
+            Window win = new WindowResource();
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+        }
+
+        void ControlsTest()
+        {
+            Window win = new WindowControl();
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
+        }
+
+        void LayoutTest()
+        {
+            Window win = new LayoutWindow();
+            win.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            win.Show();
         }
 
         /// <summary>
@@ -37,7 +73,7 @@ namespace WpfApplication2
 
             users = new List<User>();
 
-            User usr = new User("zpf","zpf");
+            User usr = new User("zpf", "zpf");
             usr.FavColors.Add("绿色");
             usr.FavColors.Add("黑色");
 
@@ -60,8 +96,8 @@ namespace WpfApplication2
             //win.Content = new Page_UsingFrameAsHost();
             //win.Content = new WpfApplication2.Pages.Hyperlinks.Page1();
             win.Content = new WpfApplication2.Pages.Hyperlinks.Page_NavigationService();
-           
-            
+
+
 
             win.Show();
         }
@@ -96,8 +132,8 @@ namespace WpfApplication2
             else
             {
                 MessageBox.Show("出错了：" + e.Exception.Message + "。程序马上退出");
-                var rst=MessageBox.Show("是否退出？", "", MessageBoxButton.YesNo);
-                if(rst==MessageBoxResult.Yes)
+                var rst = MessageBox.Show("是否退出？", "", MessageBoxButton.YesNo);
+                if (rst == MessageBoxResult.Yes)
                 {
                     this.Shutdown(-1);
                 }

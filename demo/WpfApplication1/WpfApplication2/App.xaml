@@ -5,12 +5,23 @@
              Startup="Application_Startup" Activated="Application_Activated" Deactivated="Application_Deactivated" DispatcherUnhandledException="Application_DispatcherUnhandledException" SessionEnding="Application_SessionEnding"
              >
     <Application.Resources>
-        <SolidColorBrush x:Key="MyBrush" Color="Gold"/>
+        <!--<SolidColorBrush x:Key="MyBrush" Color="Gold"/>
+        -->
         <!--样式资源-->
+        <!--
         <Style x:Key="styleGreenButton">
             <Setter Property="Control.Background" Value="Green"/>
         </Style>
+        -->
         <!--引入.NET对象资源-->
-        <local:BindingData x:Key="myDataSource"/>
+        <!--
+        <local:BindingData x:Key="myDataSource"/>-->
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Resources/DictBrushes.xaml"/>
+                <ResourceDictionary Source="/ResourcesLib;component/Brushes.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

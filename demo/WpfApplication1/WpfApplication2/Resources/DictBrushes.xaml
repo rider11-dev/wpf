@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!--字典文件需要在App.xaml中通过MergedDictionaries包含-->
+    <ImageBrush
+        x:Key="SadTileBrush"
+        TileMode="Tile"
+        ViewportUnits="Absolute"
+        Viewport="0 0 32 32"
+        ImageSource="sad.png" Opacity="0.3">
+
+    </ImageBrush>
+</ResourceDictionary>

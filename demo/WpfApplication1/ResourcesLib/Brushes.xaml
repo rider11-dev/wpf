@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ImageBrush
+        x:Key="ByeTileBrush"
+        TileMode="Tile"
+        ViewportUnits="Absolute"
+        Viewport="0 0 32 32"
+        ImageSource="goodbye.png" Opacity="0.3">
+
+    </ImageBrush>
+</ResourceDictionary>
