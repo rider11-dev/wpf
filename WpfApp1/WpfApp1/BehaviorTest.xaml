@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfApp1.BehaviorTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:i="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+        mc:Ignorable="d"
+        Title="BehaviorTest" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+    <Grid Margin="4">
+        <Border BorderBrush="Green" BorderThickness="1">
+            <Canvas>
+                <Rectangle Canvas.Left="10" Canvas.Top="10" Fill="Yellow" Width="40" Height="60"/>
+
+                <Ellipse Canvas.Left="10" Canvas.Top="70" Fill="Blue" Width="80" Height="60">
+                    <i:Interaction.Behaviors>
+                        <local:DragInCanvasBehavior/>
+                    </i:Interaction.Behaviors>
+                </Ellipse>
+
+                <Ellipse Canvas.Left="80" Canvas.Top="70" Fill="OrangeRed" Width="40" Height="70">
+                    <i:Interaction.Behaviors>
+                        <local:DragInCanvasBehavior/>
+                    </i:Interaction.Behaviors>
+                </Ellipse>
+            </Canvas>
+        </Border>
+    </Grid>
+</Window>

@@ -67,12 +67,17 @@ namespace WpfApp1
         private void btnDrag_Click(object sender, RoutedEventArgs e)
         {
             new DragAndDrop().ShowDialog();
-            
+
         }
 
         private void btnCmd_Click(object sender, RoutedEventArgs e)
         {
             new WinCmdTest().ShowDialog();
+        }
+
+        private void btnBehavior_Click(object sender, RoutedEventArgs e)
+        {
+            new BehaviorTest().ShowDialog();
         }
     }
 }

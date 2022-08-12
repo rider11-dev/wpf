@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Name="win" MouseUp="element_MouseUp" PreviewMouseUp="element_PreviewMouseUp"
         Title="MainWindow" Height="450" Width="800">
     <Grid ShowGridLines="True" Name="gd1" MouseUp="element_MouseUp" PreviewMouseUp="element_PreviewMouseUp">
@@ -39,6 +39,7 @@
         <StackPanel Grid.Row="4" Orientation="Vertical" Name="st1" MouseUp="element_MouseUp" PreviewMouseUp="element_PreviewMouseUp">
             <StackPanel>
                 <Button Name="btnRouted" MouseUp="element_MouseUp" PreviewMouseUp="element_PreviewMouseUp">路由事件测试</Button>
+                <Button Name="btnBehavior" Click="btnBehavior_Click" >行为测试</Button>
             </StackPanel>
             <ListBox Name="lstBox" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200"/>
         </StackPanel>
