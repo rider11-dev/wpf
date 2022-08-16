@@ -2,3 +2,12 @@
 /WpfApp1/WpfApp1/bin
 /WpfApp1/WpfApp1/obj
 /WpfApp1/WpfApp1/WpfApp1.csproj.user
+/AgvSchedule/.vs
+/AgvSchedule/AgvSchedule/*.user
+/AgvSchedule/AgvSchedule.Test/*.user
+/AgvSchedule/AgvSchedule.Test/bin
+/AgvSchedule/AgvSchedule.Test/obj
+/AgvSchedule/AgvSchedule.Dispather/obj
+/AgvSchedule/AgvSchedule.Dispather/bin
+/AgvSchedule/AgvSchedule/bin
+/AgvSchedule/AgvSchedule/obj

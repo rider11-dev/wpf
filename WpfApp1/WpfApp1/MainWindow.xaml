@@ -40,6 +40,7 @@
             <StackPanel>
                 <Button Name="btnRouted" MouseUp="element_MouseUp" PreviewMouseUp="element_PreviewMouseUp">路由事件测试</Button>
                 <Button Name="btnBehavior" Click="btnBehavior_Click" >行为测试</Button>
+                <Button Name="btnPath" Click="btnPath_Click" >Path测试</Button>
             </StackPanel>
             <ListBox Name="lstBox" ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200"/>
         </StackPanel>

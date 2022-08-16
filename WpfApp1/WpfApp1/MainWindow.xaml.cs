@@ -79,5 +79,10 @@ namespace WpfApp1
         {
             new BehaviorTest().ShowDialog();
         }
+
+        private void btnPath_Click(object sender, RoutedEventArgs e)
+        {
+            new PathTest().ShowDialog();
+        }
     }
 }
