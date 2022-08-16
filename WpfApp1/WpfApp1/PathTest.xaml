@@ -1,0 +1,158 @@
+﻿<Window x:Class="WpfApp1.PathTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="PathTest" Height="500" Width="600">
+    <Grid Margin="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="120"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <!--包含1，不包含2-->
+        <Canvas Grid.Row="0" Grid.Column="0">
+            <Path Fill="Yellow" Stroke="Blue" Margin="2">
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Exclude">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0,0 100,100"/>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"/>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <!--公共区域-->
+        <Canvas Grid.Row="0" Grid.Column="1">
+            <Path Fill="Green" Stroke="Blue" Margin="2">
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Intersect">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0,0 100,100"/>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"/>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <!--包含2个图形所有区域-->
+        <Canvas Grid.Row="0" Grid.Column="2">
+            <Path Fill="Red" Stroke="Blue" Margin="2">
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Union">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0,0 100,100"/>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"/>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <!--非共有区域-->
+        <Canvas Grid.Row="0" Grid.Column="3">
+            <Path Fill="Blue" Stroke="Red" Margin="2">
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Xor">
+                        <CombinedGeometry.Geometry1>
+                            <RectangleGeometry Rect="0,0 100,100"/>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"/>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <!--"no"-->
+        <Canvas Grid.Row="1" Grid.Column="0">
+            <Path Fill="Yellow" Stroke="Blue">
+                <Path.Data>
+                    <CombinedGeometry GeometryCombineMode="Union">
+                        <CombinedGeometry.Geometry1>
+                            <CombinedGeometry GeometryCombineMode="Exclude">
+                                <CombinedGeometry.Geometry1>
+                                    <EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"/>
+                                </CombinedGeometry.Geometry1>
+                                <CombinedGeometry.Geometry2>
+                                    <EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"/>
+                                </CombinedGeometry.Geometry2>
+                            </CombinedGeometry>
+                        </CombinedGeometry.Geometry1>
+                        <CombinedGeometry.Geometry2>
+                            <RectangleGeometry Rect="44,5 10,90">
+                                <RectangleGeometry.Transform>
+                                    <RotateTransform Angle="45" CenterX="50" CenterY="50"/>
+                                </RectangleGeometry.Transform>
+                            </RectangleGeometry>
+                        </CombinedGeometry.Geometry2>
+                    </CombinedGeometry>
+                </Path.Data>
+            </Path>
+        </Canvas>
+
+        <!--PathGeometry-->
+        <Canvas Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <Path Stroke="Blue" StrokeThickness="5" Canvas.Top="20">
+                <Path.Data>
+                    <PathGeometry>
+                        <PathFigure StartPoint="10,10">
+                            <BezierSegment Point1="130,30" Point2="40,140" Point3="150,150"/>
+                        </PathFigure>
+                    </PathGeometry>
+                </Path.Data>
+            </Path>
+            <Path Stroke="Green" StrokeThickness="2" StrokeDashArray="5 2" Canvas.Top="20">
+                <Path.Data>
+                    <GeometryGroup>
+                        <LineGeometry StartPoint="10,10" EndPoint="130,30"/>
+                        <LineGeometry StartPoint="40,140" EndPoint="150,150"/>
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+            <Path Fill="Red" Stroke="Red" StrokeThickness="8" Canvas.Top="20">
+                <Path.Data>
+                    <GeometryGroup>
+                        <EllipseGeometry Center="130,30"/>
+                        <EllipseGeometry Center="40,140"/>
+                    </GeometryGroup>
+                </Path.Data>
+            </Path>
+        </Canvas>
+        <!--微语言-->
+        <Canvas Grid.Row="1" Grid.Column="2">
+            <Path Stroke="Blue" Data="M 10,100 L 100,100 L 100,50 Z"/>
+        </Canvas>
+        <!--裁剪-->
+        <Grid Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+            <Grid.Resources>
+                <GeometryGroup x:Key="clipGeometry" FillRule="Nonzero">
+                    <EllipseGeometry RadiusX="30" RadiusY="20" Center="50,100"/>
+                    <EllipseGeometry RadiusX="40" RadiusY="10" Center="100,100"/>
+                    <EllipseGeometry RadiusX="30" RadiusY="52" Center="75,100"/>
+                </GeometryGroup>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Clip="{StaticResource clipGeometry}" Content="按钮" BorderBrush="Red" BorderThickness="1"/>
+            <Image Grid.Column="1" Clip="{StaticResource clipGeometry}" Stretch="None" Source="pp.jpg"/>
+        </Grid>
+    </Grid>
+</Window>
