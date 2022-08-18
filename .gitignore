@@ -11,3 +11,7 @@
 /AgvSchedule/AgvSchedule.Dispather/bin
 /AgvSchedule/AgvSchedule/bin
 /AgvSchedule/AgvSchedule/obj
+/ControlTemplateBrowser/ControlTemplateBrowser.csproj.user
+/ControlTemplateBrowser/.vs
+/ControlTemplateBrowser/bin
+/ControlTemplateBrowser/obj

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AgvSchedule.Test"
         mc:Ignorable="d" x:Name="window"
-        Title="MainWindow" Height="650" Width="800">
+        Title="MainWindow" Height="650" Width="800"
+        ResizeMode="CanResizeWithGrip">
     <Grid ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -14,7 +15,7 @@
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.Column="0" Height="{Binding ElementName=window,Path=Width}">
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <Button x:Name="btnAnimationUsingPath" Content="基于路径的动画" Click="btn_Click"/>
             <Button x:Name="btnStoryboardByCode" Content="用代码创建故事板" Click="btn_Click"/>
         </StackPanel>
